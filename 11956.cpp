@@ -5,12 +5,13 @@ using namespace std;
 
 int main()
 {
+    ios::sync_with_stdio(false);
     int t;
     string in;
     cin >> t;
     for (int i = 0; i < t; ++i)
     {
-        cout << dec << "Case " << i + 1 << ':';
+        cout << dec << "Case " << i + 1 << ": ";
         cin >> in;
         unsigned char A[100] = {0}, ptr = 0;
         for (char c : in)
