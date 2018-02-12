@@ -16,7 +16,6 @@ int main()
     cin >> c;
     while (c--)
     {
-        s = 0;
         cin >> s;
         for (int i = 0; i <= s; ++i)
             cin >> A[i];

@@ -1,4 +1,3 @@
-// TODO: heuristika?
 #include <iostream>
 #include <vector>
 #include <tuple>
@@ -21,6 +20,15 @@ const as T =
     "00000"
 };
 
+int h(as& G)
+{
+    int sum = 0;
+    for (int i = 0; i < 5; ++i)
+        for (int j = 0; j < 5; ++j)
+            sum += G[i][j] != T[i][j];
+    return max(0, sum - 1);
+}
+
 int main()
 {
     int N, x, y, w;
@@ -35,21 +43,24 @@ int main()
             getline(cin, s);
             G[i] = s.substr(0, 5);
         }
-        
+
         queue<state> Q;
         for (int i = 0; i < 5; ++i)
             for (int j = 0; j < 5; ++j)
                 if (G[i][j] == ' ')
                     Q.emplace(G, j, i, 0);
-        
+
         set<state> S;
         while (!Q.empty())
         {
             tie(G, x, y, w) = Q.front();
             if (G == T)
                 break;
-            
+
             Q.pop();
+            if (w + h(G) > 10)
+                continue;
+
             for (int i = 0; i < 8; ++i)
             {
                 int xx = x + dx[i];
