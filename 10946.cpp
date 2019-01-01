@@ -44,11 +44,11 @@ int main()
             }
         }
         sort(H.begin(), H.end(), [](pair<char, int>& a, pair<char, int>& b)
-             {
-                 if (a.second != b.second)
-                     return a.second > b.second;
-                 return a.first < b.first;
-             });
+        {
+            if (a.second != b.second)
+                return a.second > b.second;
+            return a.first < b.first;
+        });
         cout << "Problem " << t++ << ":\n";
         for (auto& p : H)
             cout << p.first << ' ' << p.second << '\n';
